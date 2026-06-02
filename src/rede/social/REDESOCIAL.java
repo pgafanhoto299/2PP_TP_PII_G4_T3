@@ -20,6 +20,7 @@ public class REDESOCIAL {
            Menu.mostrarMenuPrincipal();
            opcaoP = Menu.lerOpcao();
            Menu.executarOpcaoMenuPrincipal(opcaoP);
+           
            // Não concluido após iniciar sessão mostra o menu rede social
            if(opcaoP == 2){
               do{

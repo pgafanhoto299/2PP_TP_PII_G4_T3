@@ -4,6 +4,7 @@
  */
 package rede.social;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -43,8 +44,26 @@ public class Menu {
         }
     }
     
-    public static void criarConta() {
-        System.out.println("Criando conta...");
+    public static void criarUtilizador(){
+        Scanner input = new Scanner(System.in);
+        ArrayList<Utilizador> utilizadores = new ArrayList<>();
+        Utilizador u = new Utilizador();
+        
+        System.out.println("Digite o email: ");
+        u.setEmail(input.nextLine());
+        
+        System.out.println("Digite o Senha: "); //Verficação de senha
+        StringBuilder s = new StringBuilder();
+        u.setSenha(s.append(input.nextLine()));
+        
+        System.out.println("Digite o Username: ");
+        StringBuilder s1 = new StringBuilder();
+        u.setUsername(s1.append(input.nextLine()));
+        
+        System.out.println("Digite a datade nascimento(DD-MM-AA: ");
+        //u.setUsername(input);
+        
+        utilizadores.add(u);
     }
 
     public static void iniciarSessao() {
