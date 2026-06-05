@@ -4,46 +4,46 @@
  */
 package rede.social;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author guga
  */
 public class Mensagem {
-    private StringBuilder conteudo;
-    private Utilizador remetente, destinatario;
-    private LocalDate dataEnvio;
+    private String conteudo;
+    private int remetenteID, destinatarioID;
+    private LocalDateTime dataEnvio;
 
-    public StringBuilder getConteudo() {
+    public String getConteudo() {
         return conteudo;
     }
 
-    public Utilizador getRemetente() {
-        return remetente;
+    public int getRemetente() {
+        return remetenteID;
     }
 
-    public Utilizador getDestinatario() {
-        return destinatario;
+    public int getDestinatario() {
+        return destinatarioID;
     }
 
-    public LocalDate getDataEnvio() {
+    public LocalDateTime getDataEnvio() {
         return dataEnvio;
     }
 
-    public void setConteudo(StringBuilder conteudo) {
+    public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }
 
-    public void setRemetente(Utilizador remetente) {
-        this.remetente = remetente;
+    public void setRemetente(int remetenteID) {
+        this.remetenteID = remetenteID;
     }
 
-    public void setDestinatario(Utilizador destinatario) {
-        this.destinatario = destinatario;
+    public void setDestinatario(int destinatarioID) {
+        this.destinatarioID = destinatarioID;
     }
 
-    public void setDataEnvio(LocalDate dataEnvio) {
+    public void setDataEnvio(LocalDateTime dataEnvio) {
         this.dataEnvio = dataEnvio;
     }
     

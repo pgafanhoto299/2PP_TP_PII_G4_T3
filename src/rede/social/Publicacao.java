@@ -5,37 +5,38 @@
 package rede.social;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author guga
  */
 public class Publicacao {
-    private Utilizador remetente;
-    private StringBuilder conteudo;
-    private LocalDate dataEnvio;
+    private int remetenteID;
+    private String conteudo;
+    private LocalDateTime dataEnvio;
 
-    public Utilizador getRemetente() {
-        return remetente;
+    public int getRemetente() {
+        return remetenteID;
     }
 
-    public StringBuilder getConteudo() {
+    public String getConteudo() {
         return conteudo;
     }
 
-    public LocalDate getDataEnvio() {
+    public LocalDateTime getDataEnvio() {
         return dataEnvio;
     }
 
-    public void setRemetente(Utilizador remetente) {
-        this.remetente = remetente;
+    public void setRemetente(int remetenteID) {
+        this.remetenteID = remetenteID;
     }
 
-    public void setConteudo(StringBuilder conteudo) {
+    public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }
 
-    public void setDataEnvio(LocalDate dataEnvio) {
+    public void setDataEnvio(LocalDateTime dataEnvio) {
         this.dataEnvio = dataEnvio;
     }
     

@@ -5,6 +5,7 @@
 package rede.social;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -13,18 +14,18 @@ import java.util.ArrayList;
  */
 public class Reacao {
     private String[] reacoes = {"Trivial", "Dibinguile About you", "Vai dar tudo certo"};
-    private LocalDate dataReac;
-    private ArrayList<Utilizador> reagidor;
+    private LocalDateTime dataReac;
+    private ArrayList<Integer> reagidor;
 
     public String[] getReacoes() {
         return reacoes;
     }
 
-    public LocalDate getDataReac() {
+    public LocalDateTime getDataReac() {
         return dataReac;
     }
 
-    public ArrayList<Utilizador> getReagidor() {
+    public ArrayList<Integer> getReagidor() {
         return reagidor;
     }
 
@@ -32,11 +33,11 @@ public class Reacao {
         this.reacoes = reacoes;
     }
 
-    public void setDataReac(LocalDate dataReac) {
+    public void setDataReac(LocalDateTime dataReac) {
         this.dataReac = dataReac;
     }
 
-    public void setReagidor(ArrayList<Utilizador> reagidor) {
+    public void setReagidor(ArrayList<Integer> reagidor) {
         this.reagidor = reagidor;
     }
     
