@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Utilizador {
     private StringBuilder senha, username;
     private String email, id, dataNasc;
-    private ArrayList<Utilizador> seguidores, seguindo;
+    private ArrayList<Integer> seguidores, seguindo;
     private LocalDate dataCriac;
 
     public LocalDate getDataCriac() {
@@ -44,11 +44,11 @@ public class Utilizador {
         return id;
     }
 
-    public ArrayList<Utilizador> getSeguidores() {
+    public ArrayList<Integer> getSeguidores() {
         return seguidores;
     }
 
-    public ArrayList<Utilizador> getSeguindo() {
+    public ArrayList<Integer> getSeguindo() {
         return seguindo;
     }
 
@@ -72,11 +72,11 @@ public class Utilizador {
         this.id = id;
     }
 
-    public void setSeguidores(ArrayList<Utilizador> seguidores) {
+    public void setSeguidores(ArrayList<Integer> seguidores) {
         this.seguidores = seguidores;
     }
 
-    public void setSeguindo(ArrayList<Utilizador> seguindo) {
+    public void setSeguindo(ArrayList<Integer> seguindo) {
         this.seguindo = seguindo;
     }
 
