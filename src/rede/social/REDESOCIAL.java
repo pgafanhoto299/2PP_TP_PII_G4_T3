@@ -22,6 +22,6 @@ public class REDESOCIAL {
             opcao = Menu.lerOpcao();
             Menu.executarOpcaoMenuPrincipal(opcao);
 
-        } while (opcao != 3);
+        } while (opcao != 4 && opcao != 3);
     }
 }
