@@ -46,10 +46,6 @@ public class Menu {
         }
     }
     
-    public static void iniciarSessao() {
-        System.out.println("Iniciando sessão...");       
-    }
-    
     public static void menuRedeSocial() {
         int opcao;
 
@@ -61,6 +57,7 @@ public class Menu {
 
         } while (opcao != 4);
     }
+    
     public static void motrarMenuRedeSocial() {
 
         System.out.println("===== MENU REDE SOCIAL =====");
@@ -85,7 +82,11 @@ public class Menu {
             default -> System.out.println("Opção inválida!");
         }
     }
-
+    
+    public static void terminarSessao(){
+        System.out.println("Terminando Sessão!"); 
+    }
+    
     public static void paginaInicial() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -95,9 +96,34 @@ public class Menu {
     }
 
     public static void definicoes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        System.out.println("===== DEFINIÇÕES =====");
+        System.out.println("1. PERFIL");
+        System.out.println("2. MUDAR SENHA");
+        System.out.println("3. MUDAR EMAIL");
+        System.out.println("4. Terminar sessão");
+
+    }
+    
+    public static void executarDefinicoes(int opcao){
+        switch (opcao) {
+
+            case 1 -> perfil();
+
+            case 2 -> mudarSenha();
+
+            case 3 -> mudarEmail();
+            
+            case 4 -> terminarSessao();
+
+            default -> System.out.println("Opção inválida!");
+        }
     }
 
+    public static void perfil(){}
+    public static void mudarSenha(){}
+    public static void mudarEmail(){}
+    
     public static void criarConta(ArrayList<Utilizador> utilizadores) {
         Scanner input = new Scanner(System.in);
         
@@ -141,4 +167,33 @@ public class Menu {
         
     }
     
+    public static void iniciarSessao(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Digite o seu email: ");
+        String email = input.nextLine();
+        System.out.println("Digite a sua senha: ");
+        String senha = input.nextLine();
+        
+        //verificar as credenciais
+        //Loop para pesquisar as credenciais do usuario ao iniciar sessão
+        for(int i = 0; i < utilizadores.size(); i++){
+            if(utilizadores.get(i).getEmail().equalsIgnoreCase(email)){
+                if(utilizadores.get(i).getSenha().equals(senha)){
+                    menuRedeSocial();
+                    
+                }else{
+                    System.out.println("Senha incorreta!");
+                    iniciarSessao();
+                }
+            }else{
+                System.out.println("Usuário Inexistente!");
+                System.out.println("Por favor, Crie uma conta");
+            }
+        }
+        
+        System.out.println("Usuário Inexistente!");
+   
+    }
+    
+    //Menu Redes Sociais Opcoes
 }
