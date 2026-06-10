@@ -13,6 +13,8 @@ import java.util.Scanner;
  */
 public class Menu {
      
+     public static ArrayList<Utilizador> utilizadores = new ArrayList<>(); // vamos ter que carregar todos os ficheiros a partir do menu
+    
      static Scanner input = new Scanner(System.in);
     
      public static void mostrarMenuPrincipal() {
@@ -34,7 +36,7 @@ public class Menu {
     public static void executarOpcaoMenuPrincipal(int opcao){
         switch (opcao) {
 
-            case 1 -> criarConta();
+            case 1 -> criarConta(utilizadores);
 
             case 2 -> iniciarSessao();
 
@@ -96,8 +98,47 @@ public class Menu {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public static void criarConta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static void criarConta(ArrayList<Utilizador> utilizadores) {
+        Scanner input = new Scanner(System.in);
+        
+        //Senha
+        String senha;
+        //System.out.println("A senha tem que ter 12 caracteres");
+        System.out.println("Insira a sua senha: ");
+        while(!Utilizador.verificar_senha(senha = input.nextLine())){
+            System.out.println("Insira um senha válido:");
+        }
+        
+        
+        //Nome
+        System.out.println("Insira o seu nome: ");
+        String username = input.nextLine();// FUncao verificar nome
+        
+        
+        //Email
+        String email;
+        System.out.println("Insira o seu email: ");
+        while(!Utilizador.verificar_email(email = input.nextLine())){
+            System.out.println("Insira um email válido:");
+        }
+        System.out.println("Insira a sua data de nascimento: ");
+        String dataNasc = input.nextLine(); //FUncao Verificar data
+        
+        //Definir o ID baseado no ID do ultimo usuario cadastrado
+        int id = 0;
+        if(utilizadores.isEmpty()){
+           id = 1;
+        }else{
+           id = utilizadores.getLast().getId() + 1;
+        }
+        
+        Utilizador u = new Utilizador(senha, username, email,id, dataNasc);
+        
+        utilizadores.add(u);
+        
+        System.out.println("Conta criada com sucesso! Bem vindo a  GVO" + utilizadores.get(id-1).getUsername() + "\n O próximo passo é iniciar sessão!");
+        
+        
     }
     
 }

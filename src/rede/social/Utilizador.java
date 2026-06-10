@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package rede.social;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/**
- *
- * @author guga
- */
 public class Utilizador { 
     private String senha, username, email, dataNasc;
     private int id;
@@ -63,7 +56,6 @@ public LocalDate getDataCriac() {
     }
 
     public void setSenha(String senha){
-   if(verificar_senha(senha))
        this.senha=senha;
    
    }
@@ -108,15 +100,15 @@ public LocalDate getDataCriac() {
    
  
   public static boolean verificar_senha(String senha_ver){
-        if(senha_ver.length()!=12){
-            System.out.println("Senha deve ter 12 caracteres");    
+        if(senha_ver.length()<=4){
+            System.out.println("Senha deve ter 4 caracteres");    
             return false;      
         }
-         if(senha_ver.matches(".*[0-9].*" ) && senha_ver.matches(".*[a-z].*") && senha_ver.matches(".*[*#&%].*")){
-             System.out.println("username valido");
+         if(senha_ver.matches(".*[0-9].*" ) && senha_ver.matches(".*[a-z].*") && senha_ver.matches(".*[^a-zA-Z0-9 ].*")){
+             System.out.println("senha valida");
              return true;
         }
-      System.out.println("usuaro invalido deve ter numeros letras e caractere  especiais");
+      System.out.println("senha invalida deve ter numeros letras e caractere  especiais");
     return false;
   }
 }
