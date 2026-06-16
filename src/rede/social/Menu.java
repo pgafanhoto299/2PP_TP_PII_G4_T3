@@ -1,17 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package rede.social;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author guga
- */
+
 public class Menu {
+    
+    //serve para guardar todos os utilizdaores que estão logados no momento
+    public static Utilizador utiActual = null;
      
      public static ArrayList<Utilizador> utilizadores = new ArrayList<>(); // vamos ter que carregar todos os ficheiros a partir do menu
     
@@ -27,11 +24,12 @@ public class Menu {
     }
      
     //Ler a opcao
-    public static int lerOpcao(){
-        System.out.println("Escolha uma opção: ");
-        return input.nextInt();
-    }
-    
+   public static int lerOpcao(){
+    System.out.println("Escolha uma opção: ");
+    int opcao = input.nextInt();
+    input.nextLine(); // limpa o Enter
+    return opcao;
+}
     //Processar a opcao escolhida
     public static void executarOpcaoMenuPrincipal(int opcao){
         switch (opcao) {
@@ -121,8 +119,54 @@ public class Menu {
     }
 
     public static void perfil(){}
-    public static void mudarSenha(){}
-    public static void mudarEmail(){}
+    public static void mudarSenha() {
+
+    if(utiActual == null){
+        System.out.println("Ninguém iniciou sessão!");
+        return;
+    }
+
+    System.out.print("Digite a senha atual: ");
+    String senhaActual = input.nextLine();
+
+    if(!utiActual.getSenha().equals(senhaActual)){
+        System.out.println("Senha nova incorreta!");
+        return;
+    }
+
+    String novaSenha;
+
+    System.out.print("Digite a nova senha: ");
+
+    while(!Utilizador.verificar_senha(novaSenha = input.nextLine())){
+        System.out.println("Senha inválida!");
+        System.out.print("Digite novamente: ");
+    }
+
+    utiActual.setSenha(novaSenha);
+
+    System.out.println("Senha alterada com sucesso!");
+}
+   public static void mudarEmail() {
+
+    if(utiActual == null){
+        System.out.println("Ninguém iniciou  sessão !");
+        return;
+    }
+
+    String novoEmail;
+
+    System.out.print("Digite o novo email: ");
+
+    while(!Utilizador.verificar_email(novoEmail = input.nextLine())){
+        System.out.println("Email inválido!");
+        System.out.print("Digite novamente: ");
+    }
+
+    utiActual.setEmail(novoEmail);
+
+    System.out.println("Email alterado com sucesso!");
+}
     
     public static void criarConta(ArrayList<Utilizador> utilizadores) {
         Scanner input = new Scanner(System.in);
@@ -167,33 +211,42 @@ public class Menu {
         
     }
     
+    
     public static void iniciarSessao(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Digite o seu email: ");
-        String email = input.nextLine();
-        System.out.println("Digite a sua senha: ");
-        String senha = input.nextLine();
-        
-        //verificar as credenciais
+
+    System.out.println("Digite o seu email: ");
+    String email = input.nextLine();
+
+    System.out.println("Digite a sua senha: ");
+    String senha = input.nextLine();
+    
+    //verificar as credenciais
         //Loop para pesquisar as credenciais do usuario ao iniciar sessão
-        for(int i = 0; i < utilizadores.size(); i++){
-            if(utilizadores.get(i).getEmail().equalsIgnoreCase(email)){
-                if(utilizadores.get(i).getSenha().equals(senha)){
-                    menuRedeSocial();
-                    
-                }else{
-                    System.out.println("Senha incorreta!");
-                    iniciarSessao();
-                }
+
+    for(int i = 0; i < utilizadores.size(); i++){
+
+        if(utilizadores.get(i).getEmail().equalsIgnoreCase(email)){
+
+            if(utilizadores.get(i).getSenha().equals(senha)){
+
+                utiActual = utilizadores.get(i);
+
+                System.out.println("Sessão iniciada com sucesso!");
+
+                menuRedeSocial();
+                return;
+
             }else{
-                System.out.println("Usuário Inexistente!");
-                System.out.println("Por favor, Crie uma conta");
+
+                System.out.println("Senha incorreta!");
+                return;
             }
         }
-        
-        System.out.println("Usuário Inexistente!");
-   
     }
+
+    System.out.println("Usuário inexistente!");
+    System.out.println("Por favor, crie uma conta.");
+}
     
     //Menu Redes Sociais Opcoes
 }
