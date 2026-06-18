@@ -50,23 +50,44 @@ public class Menu {
     public static void menuRedeSocial() {
         int opcao;
 
-        do {
-            motrarMenuRedeSocial();
-            opcao = lerOpcao();
-
-            executarOpcaoMenuRedeSocial(opcao);
-
-        } while (opcao != 4);
-    }
-    
-    public static void motrarMenuRedeSocial() {
-
         System.out.println("===== MENU REDE SOCIAL =====");
         System.out.println("1. Página inicial");
         System.out.println("2. Chat");
         System.out.println("3. Definições");
         System.out.println("4. Terminar sessão");
-
+        opcao = lerOpcao();
+        
+        do {
+            switch (opcao) {
+                case 1 -> paginaInicial();
+                case 2 -> chat();
+                case 3 -> menuDefinicoes();
+                case 4 -> {
+                    utiActual = null;
+                    System.out.println("Sessão terminada.");
+                }
+                default -> System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
+    }
+    
+    public static void menuDefinicoes(){
+        int opcao;
+        do {
+            System.out.println("\n===== DEFINIÇÕES =====");
+            System.out.println("1. Ver perfil");
+            System.out.println("2. Mudar senha");
+            System.out.println("3. Mudar email");
+            System.out.println("4. Voltar");
+            opcao = lerOpcao();
+            switch (opcao) {
+                case 1 -> perfil();
+                case 2 -> mudarSenha();
+                case 3 -> mudarEmail();
+                case 4 -> System.out.println("A voltar...");
+                default -> System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
     }
     
     public static void executarOpcaoMenuRedeSocial(int opcao){
