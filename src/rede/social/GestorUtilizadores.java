@@ -107,5 +107,22 @@ public class GestorUtilizadores {
     }
 
 }
+    
+    public static Utilizador procurarPorEmail(String email){
+
+    ArrayList<Utilizador> lista = carregarUtilizadores();
+
+    for(Utilizador u : lista){
+
+        if(u.getEmail().equals(email)){
+            return u;
+        }
+
+    }
+
+    return null;
+}
+    
+    
 }
 
