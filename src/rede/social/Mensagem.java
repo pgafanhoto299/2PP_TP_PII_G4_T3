@@ -16,7 +16,7 @@ public class Mensagem {
     private LocalDateTime dataEnvio;
     
     
-    public void Mensagem (  String conteudo,int remetenteID, int destinatarioID, LocalDateTime dataEnvio){
+    public Mensagem (  String conteudo,int remetenteID, int destinatarioID, LocalDateTime dataEnvio){
         this.conteudo=conteudo;
         this. destinatarioID= destinatarioID;
         this.dataEnvio=dataEnvio;
