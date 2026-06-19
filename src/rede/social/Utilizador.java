@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Utilizador { 
     private String senha, username, email, dataNasc;
     private int id;
-    private ArrayList<Integer> seguidores, seguindo;
+   private ArrayList<Utilizador> seguidores, seguindo;
     private LocalDate dataCriac;
 
     
@@ -44,12 +44,12 @@ public LocalDate getDataCriac() {
         return id;
     }
 
-    public ArrayList<Integer> getSeguidores() {
-        return seguidores;
-    }
+    public ArrayList<Utilizador> getSeguidores() {
+    return seguidores;
+}
 
-    public ArrayList<Integer> getSeguindo() {
-        return seguindo;
+    public ArrayList<Utilizador> getSeguindo() {
+    return seguindo;
     }
 
     public String getDataNasc() {
@@ -78,14 +78,13 @@ public LocalDate getDataCriac() {
         this.id = id;
     }
 
-    public void setSeguidores(ArrayList<Integer> seguidores) {
-        this.seguidores = seguidores;
-    }
+   public void setSeguidores(ArrayList<Utilizador> seguidores) {
+    this.seguidores = seguidores;
+}
 
-    public void setSeguindo(ArrayList<Integer> seguindo) {
-        this.seguindo = seguindo;
+     public void setSeguindo(ArrayList<Utilizador> seguindo) {
+    this.seguindo = seguindo;
     }
-
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
@@ -98,9 +97,7 @@ public LocalDate getDataCriac() {
  System.out.println("email invalido");
         return false;
     }
-   
- 
-  public static boolean verificar_senha(String senha_ver){
+    public static boolean verificar_senha(String senha_ver){
         if(senha_ver.length()<=4){
             System.out.println("Senha deve ter 4 caracteres");    
             return false;      
@@ -112,4 +109,86 @@ public LocalDate getDataCriac() {
       System.out.println("senha invalida deve ter numeros letras e caractere  especiais");
     return false;
   }
+    
+ public boolean follow(Utilizador utilizador) {
+     
+     //verifica se segue a si mesmo e impede
+    if(utilizador.getId() == this.id){
+        System.out.println("Não pode seguir a si mesmo");
+        return false;
+    }
+
+    //verifica se já segue este utilizador
+    if(seguindo.contains(utilizador)){
+        System.out.println("Já segue este utilizador.");
+        return false;
+    }
+    
+    // Adiciona na lista dos seguidos
+    seguindo.add(utilizador);
+    
+     //Adiciona aos seguidores dooutro utilizador
+    utilizador.getSeguidores().add(this);
+
+    System.out.println("Agora segue " + utilizador.getUsername());
+
+    return true;
+}
+ 
+ public boolean unfollow(Utilizador utilizador){
+
+    if(!seguindo.contains(utilizador)){
+        System.out.println("Não segue este utilizador.");
+        return false;
+    }
+    
+    //remove da lista de seguidos
+    
+    seguindo.remove(utilizador);
+    
+    //remove dos seguidores do outro utilizador
+    utilizador.getSeguidores().remove(this);
+
+    System.out.println("Deixou de seguir " + utilizador.getUsername());
+
+    return true;
+}
+ 
+ public void showfollow(){
+
+     //Verifica se a lista de seguidores está vazia!
+    if(seguidores.isEmpty()){
+        System.out.println("Não tem nenhum seguidor");
+        return;
+    }
+
+    System.out.println("\n Seguidores:");
+     
+    //perccorre a lista para mostrar os seguidores
+     for(int i = 0; i < seguidores.size(); i++){
+
+        System.out.println(" " + seguidores.get(i).getUsername());
+
+    }
+}
+ 
+ public void showfollowing(){
+
+     //verifica se segue um usuário!
+    if(seguindo.isEmpty()){
+        System.out.println("Não segue ninguém");
+        return;
+    }
+
+    System.out.println("\n Seguindo:");
+      
+     //percorre para mostrar as pessoas que segue
+      for(int i = 0; i < seguindo.size(); i++){
+
+        System.out.println(" " + seguindo.get(i).getUsername());
+
+    }
+}
+ 
+ 
 }
