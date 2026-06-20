@@ -76,26 +76,25 @@ public class Menu {
             }
         } while (opcao != 4);
     }
-    
-    public static void paginaInicial() {
+        public static void paginaInicial() {
         
         System.out.println("===== Página Inicial =====");
-        System.out.println("     1.Ver Feed  ");
-        System.out.println("     2.Procurar   ");
-        System.out.println("     3.chat       ");
-        System.out.println("     4.Voltar    ");
+        System.out.println("1.Publicações  ");
+        System.out.println("2.Procurar   ");
+        System.out.println("3.chat       ");
+        System.out.println("4.Voltar    ");
      int op=lerOpcao();
     
         do{
         switch(op){
-            case 1 -> publicacao(); // funcao publicar !feita???
-             case 2-> procuraruser();  // procurar por perfil e exibir   !feita ; Bug, é necessário procurar 3x para mostrar resultado
-             case 3-> chat(); //!feita
-             case 4-> menuRedeSocial();
-             default -> System.out.println("Opção inválida!");
+            case 1 -> publicacao(); //  
+            case 2-> search();  // procurar por perfil e exibir   
+            case 3-> chat(); //
+            case 4->mostrarMenuPrincipal();
+            default -> System.out.println("Opção inválida!");
         }
         }while(op!=4);
-    }// chat, ver feed, publicacao não implementada, 
+    }
     
       
     public static void chat() {
@@ -502,16 +501,41 @@ private static void testarShowFollow(ArrayList<Utilizador> lista) {
 
 // ------ Testar showfollowing ------
 private static void testarShowFollowing(ArrayList<Utilizador> lista) {
-    System.out.print("Ver quem segue quem? (username): ");
-    String nome = input.nextLine();
+      System.out.print("Ver quem segue quem? (username): ");
+      String nome = input.nextLine();
 
-    Utilizador u = encontrarPorUsername(lista, nome);
-    if (u == null) {
+        Utilizador u = encontrarPorUsername(lista, nome);
+      if (u == null) {
         System.out.println("Utilizador não encontrado. Usa: alice, bob, carlos");
         return;
-    }
+     }
     u.showfollowing();
-}
-    
+ }
 
+        public static void publicacao(){ 
+           
+                System.out.println("\n=====Menu Publicações=====");
+                System.out.println("1. Ver publicações de alguém");
+                System.out.println("2. Minhs publicações");
+                System.out.println("3. Ver publicações de interesse");
+                System.out.println("4. Adiciornar Publicações");
+                System.out.println("5. Voltar");
+                int op=lerOpcao();
+              
+              do{
+                 switch(op){
+                   
+                    case 1-> Publicacao.exibirPulicacoes();
+                    case 2->Publicacao.exibirMinhasPublicaoes();
+                   // case 3-> ver publicacoes de interesse
+                    case 4->Publicacao.adicionarPubli(utiActual.getUsername());
+                    case 5-> paginaInicial();
+                    default->System.out.println("Opção inválida");
+                    
+                 }
+                    
+                }while(op!=4);
+     }
+    
+  
 }
