@@ -52,6 +52,11 @@ public class GestorUtilizadores {
 
         while((linha = br.readLine()) != null){
 
+              if(linha.trim().isEmpty()){
+                  continue;
+              }
+
+            
             String[] dados = linha.split(";");
 
             Utilizador u = new Utilizador(
