@@ -24,6 +24,7 @@ public class Menu {
         System.out.println("1. Criar conta");
         System.out.println("2. Iniciar Sessão");
         System.out.println("3. Fechar programa");
+        System.out.println("4. Seguidores");
 
         System.out.println("Escolha uma opção: ");
         int opcao = input.nextInt();
@@ -38,6 +39,8 @@ public class Menu {
                 System.out.println("Programa encerrado.");
                 System.exit(0);
             }
+            
+            
 
             default -> System.out.println("Opção inválida!");
         }
@@ -51,31 +54,42 @@ public class Menu {
     return opcao;
 }
     //Menu Rede Social
-    public static void menuRedeSocial() {
-        int opcao;
+ public static void menuRedeSocial() {
 
-        System.out.println("===== MENU REDE SOCIAL =====");
+    int opcao;
+
+    do {
+
+        System.out.println("\n===== MENU REDE SOCIAL =====");
         System.out.println("1. Página inicial");
         System.out.println("2. Chat");
         System.out.println("3. Definições");
-        System.out.println("4. Terminar sessão");
+        System.out.println("4. Seguidores");
+        System.out.println("5. Terminar sessão");
+
         opcao = lerOpcao();
-        
-        do {
-            switch (opcao) {
-                case 1 -> paginaInicial();
-                case 2 -> chat();
-                case 3 -> menuDefinicoes();
-                case 4 -> {
-                    utiActual = null;
-                    System.out.println("Sessão terminada.");
-                    mostrarMenuPrincipal();
-                    
-                }
-                default -> System.out.println("Opção inválida!");
+
+        switch (opcao) {
+
+            case 1 -> paginaInicial();
+
+            case 2 -> chat();
+
+            case 3 -> menuDefinicoes();
+
+            case 4 -> menuSeguidores();
+
+            case 5 -> {
+                utiActual = null;
+                System.out.println("Sessão terminada.");
+                mostrarMenuPrincipal();
             }
-        } while (opcao != 4);
-    }
+
+            default -> System.out.println("Opção inválida!");
+        }
+
+    } while (opcao != 5);
+}
     
     public static void paginaInicial() {
         
@@ -390,128 +404,95 @@ public class Menu {
             
              }
             
-            // =================== MENU DE TESTES ===================
+            
+public static void menuSeguidores(){
 
-public static void menuTestes(){
-    // Cria utilizadores de teste locais (não afeta a lista principal)
-    Utilizador u1 = new Utilizador("Senha@123", "alice", "alice@gmail.com", 901, "2000-01-01", LocalDate.now());
-    Utilizador u2 = new Utilizador("Senha@123", "bob",   "bob@gmail.com",   902, "1999-05-10", LocalDate.now());
-    Utilizador u3 = new Utilizador("Senha@123", "carlos","carlos@gmail.com",903, "1998-03-22", LocalDate.now());
-
-    ArrayList<Utilizador> testUsers = new ArrayList<>();
-    testUsers.add(u1);
-    testUsers.add(u2);
-    testUsers.add(u3);
+    if(utiActual == null){
+        System.out.println("Ninguém iniciou sessão");
+        return;
+    }
 
     int opcao;
-    do {
-        System.out.println("\n===== MENU DE TESTES — FOLLOW =====");
-        System.out.println("Utilizadores disponíveis: alice (901), bob (902), carlos (903)");
-        System.out.println("-----------------------------------");
-        System.out.println("1. Listar utilizadores de teste");
-        System.out.println("2. Follow (seguir alguém)");
-        System.out.println("3. Unfollow (deixar de seguir)");
-        System.out.println("4. Ver seguidores de um utilizador");
-        System.out.println("5. Ver quem um utilizador segue");
-        System.out.println("6. Voltar");
+
+    do{
+
+        System.out.println("\n ===== MENU SEGUIDORES =====");
+        System.out.println("1. Mostrar seguidores");
+        System.out.println("2. Mostrar seguindo");
+        System.out.println("3. Seguir");
+        System.out.println("4. Deixar de seguir");
+        System.out.println("5. Voltar");
+
         opcao = lerOpcao();
 
-        switch (opcao) {
-            case 1 -> listarTestUsers(testUsers);
-            case 2 -> testarFollow(testUsers);
-            case 3 -> testarUnfollow(testUsers);
-            case 4 -> testarShowFollow(testUsers);
-            case 5 -> testarShowFollowing(testUsers);
-            case 6 -> System.out.println("A voltar...");
-            default -> System.out.println("Opção inválida!");
+        switch(opcao){
+
+            case 1:
+                //O utilizador que está logado mostra quem está a seguir.
+                utiActual.showfollow();
+                break;
+
+            case 2:
+                 //O utilizador que está logado mostra quem está  seguindo.
+                utiActual.showfollowing();
+                break;
+
+            case 3:
+              
+             seguir();
+               break; 
+             
+
+            case 4:
+                deixarDeSeguir();
+                break;
+
+            case 5:
+                System.out.println(" voltar");
+                break;
+
+            default:
+                System.out.println("Opção inválida!");
         }
-    } while (opcao != 6);
-}
 
-// ------ Auxiliar: encontrar utilizador por username ------
-private static Utilizador encontrarPorUsername(ArrayList<Utilizador> lista, String username) {
-    for (Utilizador u : lista) {
-        if (u.getUsername().equalsIgnoreCase(username)) return u;
-    }
-    return null;
-}
+    }while(opcao != 5);
+}// feito
+    public static void seguir(){
 
-// ------ Listar utilizadores de teste ------
-private static void listarTestUsers(ArrayList<Utilizador> lista) {
-    System.out.println("\n--- Utilizadores de teste ---");
-    for (Utilizador u : lista) {
-        System.out.println("ID: " + u.getId()
-            + " | Username: " + u.getUsername()
-            + " | Seguidores: " + u.getSeguidores().size()
-            + " | Seguindo: " + u.getSeguindo().size());
-    }
-}
-
-// ------ Testar follow ------
-private static void testarFollow(ArrayList<Utilizador> lista) {
-    System.out.print("Quem vai seguir? (username): ");
-    String quem = input.nextLine();
-
-    System.out.print("Vai seguir quem? (username): ");
-    String alvo = input.nextLine();
-
-    Utilizador seguidor = encontrarPorUsername(lista, quem);
-    Utilizador seguido  = encontrarPorUsername(lista, alvo);
-
-    if (seguidor == null || seguido == null) {
-        System.out.println("Utilizador não encontrado. Usa: alice, bob, carlos");
-        return;
-    }
-
-    boolean resultado = seguidor.follow(seguido);
-    System.out.println("Resultado: " + (resultado ? "SUCESSO" : "FALHOU"));
-}
-
-// ------ Testar unfollow ------
-private static void testarUnfollow(ArrayList<Utilizador> lista) {
-    System.out.print("Quem vai deixar de seguir? (username): ");
-    String quem = input.nextLine();
-
-    System.out.print("Deixar de seguir quem? (username): ");
-    String alvo = input.nextLine();
-
-    Utilizador seguidor = encontrarPorUsername(lista, quem);
-    Utilizador seguido  = encontrarPorUsername(lista, alvo);
-
-    if (seguidor == null || seguido == null) {
-        System.out.println("Utilizador não encontrado. Usa: alice, bob, carlos");
-        return;
-    }
-
-    boolean resultado = seguidor.unfollow(seguido);
-    System.out.println("Resultado: " + (resultado ? "SUCESSO" : "FALHOU"));
-}
-
-// ------ Testar showfollow ------
-private static void testarShowFollow(ArrayList<Utilizador> lista) {
-    System.out.print("Ver seguidores de quem? (username): ");
+    System.out.print("Digite o nome de quem desejas seguir: ");
     String nome = input.nextLine();
 
-    Utilizador u = encontrarPorUsername(lista, nome);
-    if (u == null) {
-        System.out.println("Utilizador não encontrado. Usa: alice, bob, carlos");
-        return;
-    }
-    u.showfollow();
-}
+    for(Utilizador u : utilizadores){
 
-// ------ Testar showfollowing ------
-private static void testarShowFollowing(ArrayList<Utilizador> lista) {
-    System.out.print("Ver quem segue quem? (username): ");
+        if(u.getUsername().equalsIgnoreCase(nome)){
+
+            utiActual.follow(u);
+
+            GestorUtilizadores.reescreverFicheiro(utilizadores);
+
+            return;
+        }
+    }
+
+    System.out.println("Utilizador não encontrado.");
+}  //feito
+public static void deixarDeSeguir(){
+
+    System.out.print("Digite o nome de quem queres deixar de seguir: ");
     String nome = input.nextLine();
 
-    Utilizador u = encontrarPorUsername(lista, nome);
-    if (u == null) {
-        System.out.println("Utilizador não encontrado. Usa: alice, bob, carlos");
-        return;
-    }
-    u.showfollowing();
-}
-    
+    for(Utilizador u : utilizadores){
 
+        if(u.getUsername().equalsIgnoreCase(nome)){
+
+            utiActual.unfollow(u);
+
+            GestorUtilizadores.reescreverFicheiro(utilizadores);
+
+            return;
+        }
+    }
+
+    System.out.println("Utilizador não encontrado.");
+}//feito
 }
