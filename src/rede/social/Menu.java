@@ -84,27 +84,32 @@ public class Menu {
                 System.out.println("Sessão terminada.");
                 mostrarMenuPrincipal();
             }
-        } while (opcao != 4);
-    }
-        public static void paginaInicial() {
+
+            default -> System.out.println("Opção inválida!");
+        }
+
+    } while (opcao != 5);
+}
+    
+    public static void paginaInicial() {
         
         System.out.println("===== Página Inicial =====");
-        System.out.println("1.Publicações  ");
-        System.out.println("2.Procurar   ");
-        System.out.println("3.chat       ");
-        System.out.println("4.Voltar    ");
+        System.out.println("     1.Ver Feed  ");
+        System.out.println("     2.Procurar   ");
+        System.out.println("     3.chat       ");
+        System.out.println("     4.Voltar    ");
      int op=lerOpcao();
     
         do{
         switch(op){
-            case 1 -> publicacao(); //  
-            case 2-> search();  // procurar por perfil e exibir   
-            case 3-> chat(); //
-            case 4->mostrarMenuPrincipal();
-            default -> System.out.println("Opção inválida!");
+            case 1 -> publicacao(); // funcao publicar !feita???
+             case 2-> procuraruser();  // procurar por perfil e exibir   !feita ; Bug, é necessário procurar 3x para mostrar resultado
+             case 3-> chat(); //!feita
+             case 4-> menuRedeSocial();
+             default -> System.out.println("Opção inválida!");
         }
         }while(op!=4);
-    }
+    }// chat, ver feed, publicacao não implementada, 
     
       
     public static void chat() {
