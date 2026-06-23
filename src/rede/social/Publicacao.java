@@ -1,31 +1,16 @@
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package rede.social;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Scanner;
-//String caminho = "publicacao.txt";
-/**
- *
- * @author guga
- */
+
+
 public class Publicacao {
     private String remetenteID;
     private String conteudo;
     private LocalDateTime dataEnvio;
 
-    
-   public Publicacao(String conteudo,String remetenteID,LocalDateTime dataEnvio){
-       this.conteudo=conteudo;
-       this.remetenteID=remetenteID;
-       this.dataEnvio=dataEnvio;
-   }
-   
     public String getRemetente() {
         return remetenteID;
     }
@@ -49,7 +34,14 @@ public class Publicacao {
     public void setDataEnvio(LocalDateTime dataEnvio) {
         this.dataEnvio = dataEnvio;
     }
-    
+    public Publicacao(String remetenteID,String conteudo,LocalDateTime dataEnvio){
+              this.conteudo=conteudo;
+              this.remetenteID=remetenteID;
+              this.dataEnvio=dataEnvio;
+               
+
+}
+
        public static void exibirPulicacoes (){         
             
              ArrayList<Publicacao> publicacoes = new ArrayList<>();
@@ -141,5 +133,6 @@ public class Publicacao {
 
   
     
+
     
 

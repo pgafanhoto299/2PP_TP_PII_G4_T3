@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class GestorPublicacao {
     
     public static void  guardar_publicacao(Publicacao P){
+        
     
         try( BufferedWriter pw =
           new BufferedWriter (
@@ -28,8 +29,11 @@ public class GestorPublicacao {
                 System.out.println("Erro ao guardar publicacao");
           }
                     
-    }
-            
+    
+}  
+   
+
+    
     public static  ArrayList <Publicacao> Carregar_publicacao(){
                        
           ArrayList<Publicacao> lista = new ArrayList<>();
@@ -141,8 +145,9 @@ public class GestorPublicacao {
                    
            
                 }
- 
-        }
+}
+        
+
      
 
 

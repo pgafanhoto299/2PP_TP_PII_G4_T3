@@ -84,38 +84,41 @@ public class Menu {
                 utiActual = null;
                 System.out.println("Sessão terminada.");
                 mostrarMenuPrincipal();
+
              }
-       }
+                default -> System.out.println("Opção inválida!");
+        }
          
     }while (opcao != 5);
       }
           
-   
-    
+               
+        
     
     public static void paginaInicial() {
         
         System.out.println("===== Página Inicial =====");
-        System.out.println("1.Publicações  ");
-        System.out.println("2.Procurar   ");
-        System.out.println("3.chat       ");
-        System.out.println("4.Voltar    ");
+        System.out.println("     1.Ver Feed  ");
+        System.out.println("     2.Procurar   ");
+        System.out.println("     3.chat       ");
+        System.out.println("     4.Voltar    ");
      int op=lerOpcao();
     
         do{
         switch(op){
-            case 1 -> publicacao(); //  
-           // case 2-> search();  // procurar por perfil e exibir   
-            case 3-> chat(); //
-            case 4->menuRedeSocial();
-            default -> System.out.println("Opção inválida!");
+            case 1 -> publicacao(); // todas a funcoes feitas
+             case 2-> procuraruser();  // procurar por perfil e exibir   !feita ; Bug, é necessário procurar 3x para mostrar resultado
+             case 3-> chat(); //!feita
+             case 4-> menuRedeSocial();
+             default -> System.out.println("Opção inválida!");
+
         }
         }while(op!=4);
-    }
+  
     
-      
-    public static void chat() {
-        int opcao;
+    }
+        public static void chat() {
+          int opcao;
             
         do{
             System.out.println("\n===== CHAT =====");
@@ -316,7 +319,7 @@ public class Menu {
         //Senha
         String senha;
         //System.out.println("A senha tem que ter 12 caracteres");
-        System.out.println("Insira a sua senha: ");
+        System.out.println("Insira a sua senha: ");GestorUtilizadores.carregarUtilizadores();
         while(!Utilizador.verificar_senha(senha = input.nextLine())){
             System.out.println("Insira um senha válido:");
         }
@@ -337,6 +340,7 @@ public class Menu {
                 String dataNasc = input.nextLine(); //FUncao Verificar data
         
         //Definir o ID baseado no ID do ultimo usuario cadastrado
+        utilizadores = GestorUtilizadores.carregarUtilizadores();
         int id = 0;
         if(utilizadores.isEmpty()){
                id = 1;
@@ -517,10 +521,6 @@ public static void deixarDeSeguir(){
 
     System.out.println("Utilizador não encontrado.");
 }
-
-
-
-
 
 }
 
