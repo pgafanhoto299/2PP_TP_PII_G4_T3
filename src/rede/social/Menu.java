@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static rede.social.GestorUtilizadores.carregarUtilizadores;
 
 
 
@@ -14,7 +15,7 @@ public class Menu {
     public static Utilizador utiActual = null;
      
      public static ArrayList<Utilizador> utilizadores = new ArrayList<>(); // vamos ter que carregar todos os ficheiros a partir do menu
-    
+     
      static Scanner input = new Scanner(System.in);
     
      // Menu Principal 
@@ -24,7 +25,7 @@ public class Menu {
         System.out.println("1. Criar conta");
         System.out.println("2. Iniciar Sessão");
         System.out.println("3. Fechar programa");
-        System.out.println("4. Seguidores");
+        //System.out.println("4. Seguidores");
 
         System.out.println("Escolha uma opção: ");
         int opcao = input.nextInt();
@@ -54,20 +55,20 @@ public class Menu {
     return opcao;
 }
     //Menu Rede Social
- public static void menuRedeSocial() {
+    public static void menuRedeSocial() {
 
-    int opcao;
+        int opcao;
 
-    do {
+     do {
 
-        System.out.println("\n===== MENU REDE SOCIAL =====");
-        System.out.println("1. Página inicial");
-        System.out.println("2. Chat");
-        System.out.println("3. Definições");
-        System.out.println("4. Seguidores");
-        System.out.println("5. Terminar sessão");
+            System.out.println("\n===== MENU REDE SOCIAL =====");
+            System.out.println("1. Página inicial");
+            System.out.println("2. Chat");
+            System.out.println("3. Definições");
+            System.out.println("4. Seguidores");
+            System.out.println("5. Terminar sessão");
 
-        opcao = lerOpcao();
+            opcao = lerOpcao();
 
         switch (opcao) {
 
@@ -83,13 +84,16 @@ public class Menu {
                 utiActual = null;
                 System.out.println("Sessão terminada.");
                 mostrarMenuPrincipal();
-            }
 
-            default -> System.out.println("Opção inválida!");
+             }
+                default -> System.out.println("Opção inválida!");
         }
-
-    } while (opcao != 5);
-}
+         
+    }while (opcao != 5);
+      }
+          
+               
+        
     
     public static void paginaInicial() {
         
@@ -102,18 +106,19 @@ public class Menu {
     
         do{
         switch(op){
-            case 1 -> publicacao(); // funcao publicar !feita???
+            case 1 -> publicacao(); // todas a funcoes feitas
              case 2-> procuraruser();  // procurar por perfil e exibir   !feita ; Bug, é necessário procurar 3x para mostrar resultado
              case 3-> chat(); //!feita
              case 4-> menuRedeSocial();
              default -> System.out.println("Opção inválida!");
+
         }
         }while(op!=4);
-    }// chat, ver feed, publicacao não implementada, 
+  
     
-      
-    public static void chat() {
-        int opcao;
+    }
+        public static void chat() {
+          int opcao;
             
         do{
             System.out.println("\n===== CHAT =====");
@@ -361,7 +366,7 @@ public class Menu {
 
         System.out.println("Digite a sua senha: ");
         String senha = input.nextLine();
-    
+        utilizadores = GestorUtilizadores.carregarUtilizadores();
     //verificar as credenciais
         //Loop para pesquisar as credenciais do usuario ao iniciar sessão
 
@@ -393,17 +398,37 @@ public class Menu {
     
     //Menu Redes Sociais Opcoes
  
-  public static void procuraruser(){
+     public static void procuraruser(){
       
-  }
+     }
  
 
-             public static void publicacao(){ 
-
-
-            System.out.println("");
-            
-             }
+          public static void publicacao(){
+               
+                 int opcao;
+                 
+                 
+              do{
+                 System.out.println("\n======Menu Publicações======");
+                 System.out.println("1.Ver publicações de alguém");
+                 System.out.println("2.Ver minhas publicacoes");
+                 System.out.println("3.Adicionar Publicação");
+                 System.out.println("4.Eliminar publicação");
+                 System.out.println("5.voltar");
+                  opcao = lerOpcao();
+                
+                 switch(opcao){
+                     case 1->Publicacao.exibirPulicacoes();
+                     case 2->Publicacao.exibirMinhasPublicaoes();
+                     case 3->Publicacao.adicionarPubli(utiActual.getUsername());
+                     case 4-> Publicacao.eliminarPubli();
+                     case 5-> paginaInicial();
+                     default->System.out.println("opção invalida");
+                 }
+             
+              }while(opcao!=5);
+         
+          }
             
             
 public static void menuSeguidores(){
@@ -495,5 +520,9 @@ public static void deixarDeSeguir(){
     }
 
     System.out.println("Utilizador não encontrado.");
-}//feito
 }
+
+}
+
+
+
