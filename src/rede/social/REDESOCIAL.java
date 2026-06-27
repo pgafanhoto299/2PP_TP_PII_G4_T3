@@ -17,9 +17,8 @@ public class REDESOCIAL {
        
       GestorUtilizadores.carregarUtilizadores();
       Menu.mostrarMenuPrincipal();
+      
         
-   
-    
     
         
                    

@@ -13,7 +13,7 @@ public class Menu {
     
     //serve para guardar todos os utilizdaores que estão logados no momento
     public static Utilizador utiActual = null;
-     
+     public static int idPostSelecionado;
      public static ArrayList<Utilizador> utilizadores = new ArrayList<>(); // vamos ter que carregar todos os ficheiros a partir do menu
      
      static Scanner input = new Scanner(System.in);
@@ -48,18 +48,18 @@ public class Menu {
     }
      
     //Ler a opcao
-   public static int lerOpcao(){
-    System.out.println("Escolha uma opção: ");
-    int opcao = input.nextInt();
-    input.nextLine(); // limpa o Enter
-    return opcao;
-}
+      public static int lerOpcao(){
+            System.out.println("Escolha uma opção: ");
+             int opcao = input.nextInt();
+            input.nextLine(); // limpa o Enter
+            return opcao;
+       }
     //Menu Rede Social
     public static void menuRedeSocial() {
 
         int opcao;
 
-     do {
+        do {
 
             System.out.println("\n===== MENU REDE SOCIAL =====");
             System.out.println("1. Página inicial");
@@ -70,27 +70,29 @@ public class Menu {
 
             opcao = lerOpcao();
 
-        switch (opcao) {
+            switch (opcao) {
 
-            case 1 -> paginaInicial();
+                case 1 -> paginaInicial();
 
-            case 2 -> chat();
+                case 2 -> chat();
 
-            case 3 -> menuDefinicoes();
+                case 3 -> menuDefinicoes();
 
-            case 4 -> menuSeguidores();
+                case 4 -> menuSeguidores();
 
-            case 5 -> {
+                case 5 -> {
                 utiActual = null;
                 System.out.println("Sessão terminada.");
                 mostrarMenuPrincipal();
 
-             }
+                }
                 default -> System.out.println("Opção inválida!");
-        }
+           }
          
-    }while (opcao != 5);
-      }
+       }while (opcao != 5);
+      
+    
+    }
           
                
         
@@ -98,10 +100,10 @@ public class Menu {
     public static void paginaInicial() {
         
         System.out.println("===== Página Inicial =====");
-        System.out.println("     1.Ver Feed  ");
-        System.out.println("     2.Procurar   ");
-        System.out.println("     3.chat       ");
-        System.out.println("     4.Voltar    ");
+        System.out.println("1.Ver Feed");
+        System.out.println("2.Procurar");
+        System.out.println("3.chat");
+        System.out.println("4.Voltar");
      int op=lerOpcao();
     
         do{
@@ -502,10 +504,10 @@ public static void menuSeguidores(){
 
     System.out.println("Utilizador não encontrado.");
 }  //feito
-public static void deixarDeSeguir(){
+        public static void deixarDeSeguir(){
 
-    System.out.print("Digite o nome de quem queres deixar de seguir: ");
-    String nome = input.nextLine();
+        System.out.print("Digite o nome de quem queres deixar de seguir: ");
+        String nome = input.nextLine();
 
     for(Utilizador u : utilizadores){
 
@@ -519,9 +521,17 @@ public static void deixarDeSeguir(){
         }
     }
 
+    
+    
     System.out.println("Utilizador não encontrado.");
-}
+       
+        
+        
+        }
 
+
+
+   
 }
 
 
