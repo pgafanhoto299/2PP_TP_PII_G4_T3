@@ -79,19 +79,23 @@ public class GestorPublicacao {
         }
         return minhas;
     }
+    //jfhdf
+    ArrayList<Publicacao> deletarPubli(int pos) { // Alterado para remover por valor
+    ArrayList<Publicacao> todas  = Carregar_publicacao();
+    ArrayList<Publicacao> minhas = procurarMinhasPubliC(Menu.utiActual.getUsername());
 
-    public static ArrayList<Publicacao> deletarPubli(int pos) {
-        ArrayList<Publicacao> todas  = Carregar_publicacao();
-        ArrayList<Publicacao> minhas = procurarMinhasPubliC(Menu.utiActual.getUsername());
-
-        if (pos < 1 || pos > minhas.size()) {
-            System.out.println("Publicação não encontrada.");
-            return todas; // devolve lista global intacta
-        }
-
-        // Identifica o objeto exato a remover na lista global
-        Publicacao aRemover = minhas.get(pos - 1);
-        todas.remove(aRemover);
+    if (pos < 1 || pos > minhas.size()) {
+        System.out.println("Publicação não encontrada.");
         return todas;
     }
+
+    Publicacao aRemover = minhas.get(pos - 1);
+    
+    todas.removeIf(p ->
+        p.getRemetente().equals(aRemover.getRemetente()) &&
+        p.getDataEnvio().equals(aRemover.getDataEnvio())
+    );
+
+    return todas;
+}
 }
