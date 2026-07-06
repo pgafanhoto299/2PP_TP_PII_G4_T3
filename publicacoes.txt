@@ -1,0 +1,60 @@
+Adilson Santos;Bom dia a todos!;2026-07-01T08:00:00.123456789
+Agostinho Fernandes;Hoje foi um excelente dia.;2026-07-01T09:15:27.234567891
+Amélia Domingos;Nunca desistam dos vossos sonhos.;2026-07-01T10:42:11.345678912
+Ana Pedro;A estudar programação em Java.;2026-07-01T11:20:35.456789123
+André Mateus;Vamos em frente!;2026-07-01T12:55:41.567891234
+António Afonso;Angola tem muito potencial.;2026-07-01T14:10:09.678912345
+Arlete Quissanga;A tecnologia muda vidas.;2026-07-01T15:37:56.789123456
+Armindo Kiala;Mais um objetivo alcançado.;2026-07-01T16:48:13.891234567
+Belarmino Manuel;Hora de descansar.;2026-07-01T18:05:27.912345678
+Bruno Cassoma;Até amanhã, pessoal!;2026-07-01T19:31:40.123987654
+Cândida Chipenda;Foco no trabalho.;2026-07-02T08:11:22.234198765
+Carlos Tavares;Aprender todos os dias.;2026-07-02T09:45:51.345219876
+Celma Pereira;O sucesso vem com disciplina.;2026-07-02T10:17:43.456321987
+Cláudia Silva;Orgulho de ser angolano.;2026-07-02T11:52:18.567432198
+Daniel Santos;Boa noite, família.;2026-07-02T13:04:59.678543219
+David Fernandes;Bom dia a todos!;2026-07-02T14:16:08.789654321
+Domingos Domingos;Hoje foi um excelente dia.;2026-07-02T15:27:35.891765432
+Edna Pedro;Nunca desistam dos vossos sonhos.;2026-07-02T16:44:21.912876543
+Eduardo Mateus;A estudar programação em Java.;2026-07-02T18:09:17.123456780
+Elisa Afonso;Vamos em frente!;2026-07-02T19:56:44.234567801
+Elizandro Quissanga;Angola tem muito potencial.;2026-07-03T08:18:13.345678012
+Ernesto Kiala;A tecnologia muda vidas.;2026-07-03T09:36:55.456789023
+Ester Manuel;Mais um objetivo alcançado.;2026-07-03T10:47:41.567890134
+Eurico Cassoma;Hora de descansar.;2026-07-03T11:58:29.678901245
+Fátima Chipenda;Até amanhã, pessoal!;2026-07-03T13:23:16.789012356
+Felisberto Tavares;Foco no trabalho.;2026-07-03T14:40:08.890123467
+Fernando Pereira;Aprender todos os dias.;2026-07-03T15:57:39.901234578
+Filomena Silva;O sucesso vem com disciplina.;2026-07-03T17:15:20.012345689
+Francisco Santos;Orgulho de ser angolano.;2026-07-03T18:43:01.123456790
+Gabriel Fernandes;Boa noite, família.;2026-07-03T20:11:45.234567901
+Gilberto Domingos;Bom dia a todos!;2026-07-04T08:07:14.345678912
+Helena Pedro;Hoje foi um excelente dia.;2026-07-04T09:32:58.456789123
+Henrique Mateus;Nunca desistam dos vossos sonhos.;2026-07-04T10:55:47.567891234
+Isabel Afonso;A estudar programação em Java.;2026-07-04T12:08:36.678912345
+Jacinto Quissanga;Vamos em frente!;2026-07-04T13:42:24.789123456
+Joana Kiala;Angola tem muito potencial.;2026-07-04T15:03:11.891234567
+Joel Manuel;A tecnologia muda vidas.;2026-07-04T16:36:29.912345678
+Jorge Cassoma;Mais um objetivo alcançado.;2026-07-04T18:01:18.123987654
+José Chipenda;Hora de descansar.;2026-07-04T19:44:06.234198765
+Juliana Tavares;Até amanhã, pessoal!;2026-07-04T21:12:57.345219876
+Laura Pereira;Foco no trabalho.;2026-07-05T08:09:31.456321987
+Leonel Silva;Aprender todos os dias.;2026-07-05T09:48:22.567432198
+Lourenço Santos;O sucesso vem com disciplina.;2026-07-05T10:53:17.678543219
+Luísa Fernandes;Orgulho de ser angolano.;2026-07-05T12:26:49.789654321
+Manuel Domingos;Boa noite, família.;2026-07-05T13:58:03.891765432
+Marcos Pedro;Bom dia a todos!;2026-07-05T15:21:56.912876543
+Maria Mateus;Hoje foi um excelente dia.;2026-07-05T16:43:20.123456780
+Mateus Afonso;Nunca desistam dos vossos sonhos.;2026-07-05T18:14:35.234567801
+Micaela Quissanga;A estudar programação em Java.;2026-07-05T19:55:27.345678012
+Miguel Kiala;Vamos em frente!;2026-07-05T21:08:42.456789023
+Milca Manuel;Angola tem muito potencial.;2026-07-06T08:16:51.567890134
+Nelson Cassoma;A tecnologia muda vidas.;2026-07-06T09:39:10.678901245
+Neusa Chipenda;Mais um objetivo alcançado.;2026-07-06T10:47:32.789012356
+Nuno Tavares;Hora de descansar.;2026-07-06T12:11:25.890123467
+Octávio Pereira;Até amanhã, pessoal!;2026-07-06T13:57:14.901234578
+Osvaldo Silva;Foco no trabalho.;2026-07-06T15:20:48.012345689
+Patrícia Santos;Aprender todos os dias.;2026-07-06T16:44:09.123456790
+Paulo Fernandes;O sucesso vem com disciplina.;2026-07-06T18:13:53.234567901
+Pedro Domingos;Orgulho de ser angolano.;2026-07-06T19:36:41.345678912
+Raimundo Pedro;Boa noite, família.;2026-07-06T21:15:01.276134611
